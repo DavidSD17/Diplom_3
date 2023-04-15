@@ -32,7 +32,7 @@ public class SignUpPage {
 
     }
     public void clickOnSignUpBtn(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(signUpBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(signUpBtn));
         driver.findElement(signUpBtn).click();
 
     }

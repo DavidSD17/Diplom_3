@@ -24,7 +24,7 @@ public class StartPage {
 
     public void clickOnLoginBtn(){
     driver.findElement(loginBtn).click();
-        new WebDriverWait(driver, Duration.ofSeconds(3))
+        new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Войти')]")));
 
     }

@@ -19,7 +19,7 @@ public class PersonalAccountPage {
     }
 
     public void checkPersonalAccountTab(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(personalAccountTab));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(personalAccountTab));
 
     }
     public void clickOnConstructorBtn(){

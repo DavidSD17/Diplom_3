@@ -18,7 +18,7 @@ public class RestorePasswordPage {
         this.driver = driver;
     }
     public void waitToloadRestorePasswordPage(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(restorePasswordTextHeader));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(restorePasswordTextHeader));
 
     }
 

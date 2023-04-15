@@ -9,7 +9,7 @@ import pageObject.LoginPage;
 import pageObject.SignUpPage;
 import pageObject.StartPage;
 
-public class SignUpTest {
+public class SignUpYandexTest {
 
     private WebDriver driver;
 

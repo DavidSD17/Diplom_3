@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.*;
 
-public class LoginTest {
+public class LoginYandexTest {
     private WebDriver driver;
     private StartPage StartPage;
     private LoginPage loginPage;
@@ -95,45 +95,6 @@ public class LoginTest {
         personalAccountPage.checkPersonalAccountTab();
 
     }
-
-    @Test
-    @Description("Переход в конструктор по кнопке Конструктор")
-    public void goToConstructorFromPersonalAccount() {
-        StartPage startPage = new StartPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-        startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
-        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
-        loginPage.pastePasswordAuth("ljUoSldk");
-        loginPage.clickOnLoginBtn();
-        homePage.clickOnPersonalAccountOnHomePage();
-        personalAccountPage.checkPersonalAccountTab();
-        personalAccountPage.clickOnConstructorBtn();
-        homePage.checkAssembleTheBurgerText();
-
-    }
-
-    @Test
-    @Description("Переход в конструктор по Лого")
-    public void goToConstructorByLogo() {
-        StartPage startPage = new StartPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-        startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
-        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
-        loginPage.pastePasswordAuth("ljUoSldk");
-        loginPage.clickOnLoginBtn();
-        homePage.clickOnPersonalAccountOnHomePage();
-        personalAccountPage.checkPersonalAccountTab();
-        personalAccountPage.clickOnLogo();
-        homePage.checkAssembleTheBurgerText();
-
-    }
-
 
 
     @After

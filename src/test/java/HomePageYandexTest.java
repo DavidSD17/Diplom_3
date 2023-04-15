@@ -11,7 +11,7 @@ import pageObject.LoginPage;
 import pageObject.PersonalAccountPage;
 import pageObject.StartPage;
 
-public class HomePageTest {
+public class HomePageYandexTest {
 
     private WebDriver driver;
     private StartPage StartPage;
@@ -25,6 +25,44 @@ public class HomePageTest {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe");
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
+
+    }
+
+    @Test
+    @Description("Переход в конструктор по кнопке Конструктор")
+    public void goToConstructorFromPersonalAccount() {
+        StartPage startPage = new StartPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+        startPage.clickOnPersonalAccountBtn();
+        loginPage.waitToLoadStartPage();
+        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
+        loginPage.pastePasswordAuth("ljUoSldk");
+        loginPage.clickOnLoginBtn();
+        homePage.clickOnPersonalAccountOnHomePage();
+        personalAccountPage.checkPersonalAccountTab();
+        personalAccountPage.clickOnConstructorBtn();
+        homePage.checkAssembleTheBurgerText();
+
+    }
+
+    @Test
+    @Description("Переход в конструктор по Лого")
+    public void goToConstructorByLogo() {
+        StartPage startPage = new StartPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+        startPage.clickOnPersonalAccountBtn();
+        loginPage.waitToLoadStartPage();
+        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
+        loginPage.pastePasswordAuth("ljUoSldk");
+        loginPage.clickOnLoginBtn();
+        homePage.clickOnPersonalAccountOnHomePage();
+        personalAccountPage.checkPersonalAccountTab();
+        personalAccountPage.clickOnLogo();
+        homePage.checkAssembleTheBurgerText();
 
     }
 
@@ -50,7 +88,7 @@ public class HomePageTest {
     }
     @Test
     @Description("Переход на вкладку Булки")
-    public void goOnИгтTab() {
+    public void goOnBunTab() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnSauceTab();
         homePage.clickOnBunTab();
@@ -58,6 +96,7 @@ public class HomePageTest {
         Assert.assertEquals("Булки",currentTab);
 
     }
+
     @After
     public void tearDown(){
         driver.close();

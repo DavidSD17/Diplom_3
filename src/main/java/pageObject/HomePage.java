@@ -29,7 +29,7 @@ public class HomePage {
     }
 
     public void checkAssembleTheBurgerText(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(assembleTheBurgerText));
+        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(assembleTheBurgerText));
 
     }
     public void clickOnBunTab(){

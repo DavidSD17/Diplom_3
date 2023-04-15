@@ -31,10 +31,10 @@ public class LoginPage {
 
 
     public void waitToLoadStartPage(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(loginAuthBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(loginAuthBtn));
     }
     public void waitToLoadSignUpPage(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(signUpPage.signUpBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(signUpPage.signUpBtn));
     }
 
     public void pasteEmailAuth(String email){
@@ -51,7 +51,7 @@ public class LoginPage {
 
     public void clickOnLoginBtn(){
         driver.findElement(loginAuthBtn).click();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(homePage.arrangeOrderBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(homePage.arrangeOrderBtn));
 
     }
 
@@ -70,7 +70,7 @@ public class LoginPage {
 
     }
     public void checkErrorPassText(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(inCorrectPasswordText));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(inCorrectPasswordText));
 
     }
 
