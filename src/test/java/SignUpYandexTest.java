@@ -1,19 +1,21 @@
 import io.qameta.allure.Description;
+import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.LoginPage;
-import pageObject.SignUpPage;
-import pageObject.StartPage;
+import pages.LoginPage;
+import pages.SignUpPage;
+import pages.StartPage;
 
 public class SignUpYandexTest {
 
     private WebDriver driver;
 
     private By loginBtn;
+    private String email;
 
     @Before
     public void setUp() {
@@ -26,7 +28,7 @@ public class SignUpYandexTest {
 
     @Test
     @Description("Ошибка для некорректного пароля. Минимальный пароль — шесть символов")
-    public void SignUpIncorrectPassword(){
+    public void signUpIncorrectPassword(){
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -48,13 +50,22 @@ public class SignUpYandexTest {
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
+
         startPage.clickOnLoginBtn();
         loginPage.clickOnSignUpBtn();
         loginPage.waitToLoadSignUpPage();
         signUpPage.pasteNameSignUp(signUpPage.nameGenerator());
-        loginPage.pasteEmailAuth(signUpPage.nameGenerator()+"@yandex.ru");
+        email = signUpPage.emailGenerator();
+        signUpPage.pasteEmailSignUp(email);
         loginPage.pastePasswordAuth("ljUoSldk");
         signUpPage.clickOnSignUpBtn();
+
+        UserCreds userCreds = new UserCreds(email,"ljUoSldk");
+        UserClient userClient = new UserClient();
+        ValidatableResponse loginResponse = userClient.login(userCreds);
+        String accessToken = loginResponse.extract().path("accessToken");
+        userClient.delete(accessToken);
+
     }
 
     @After

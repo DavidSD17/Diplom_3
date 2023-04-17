@@ -1,4 +1,4 @@
-package pageObject;
+package pages;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -6,14 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
 public class SignUpPage {
     WebDriver driver;
 
-     final By nameField = By.xpath("//label[contains(text(),'Имя')]/following-sibling::input");
-    final By signUpBtn = By.xpath("//button[contains(text(),'Зарегистрироваться')]");
-    final By loginBtn = By.xpath("//a[contains(text(),'Войти')]");
+    private final By nameField = By.xpath("//label[contains(text(),'Имя')]/following-sibling::input");
+    private final By emailField = By.xpath("//fieldset[2]//div[1]//div[1]//input[1]");
+
+    protected final By signUpBtn = By.xpath("//button[contains(text(),'Зарегистрироваться')]");
+    private final By loginBtn = By.xpath("//a[contains(text(),'Войти')]");
 
 
     public SignUpPage(WebDriver driver) {
@@ -25,12 +25,26 @@ public class SignUpPage {
         return name;
     }
 
+    public String emailGenerator(){
+        String name = RandomStringUtils.randomAlphabetic(7);
+        return name+"@yandex.ru";
+    }
+
     public void pasteNameSignUp(String name){
-        driver.findElement(nameField).isDisplayed();
         driver.findElement(nameField).click();
         driver.findElement(nameField).sendKeys(name);
 
     }
+    public void pasteEmailSignUp(String name){
+        driver.findElement(emailField).click();
+        driver.findElement(emailField).sendKeys(name);
+
+    }
+    public String getEmailSignUp(){
+      return driver.findElement(emailField).getText();
+
+    }
+
     public void clickOnSignUpBtn(){
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(signUpBtn));
         driver.findElement(signUpBtn).click();
@@ -38,9 +52,10 @@ public class SignUpPage {
     }
 
     public void clickOnLoginBtn(){
-        driver.findElement(loginBtn).isDisplayed();
         driver.findElement(loginBtn).click();
 
 
     }
+
+
 }

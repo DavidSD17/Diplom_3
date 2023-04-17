@@ -1,12 +1,9 @@
-package pageObject;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import java.time.Duration;
 
 public class LoginPage {
     private WebDriver driver;
@@ -40,7 +37,9 @@ public class LoginPage {
     public void pasteEmailAuth(String email){
         driver.findElement(emailField).click();
         driver.findElement(emailField).sendKeys(email);
-
+    }
+    public String getEmailSignUp(){
+        return driver.findElement(emailField).getText();
     }
 
     public void pastePasswordAuth(String password){

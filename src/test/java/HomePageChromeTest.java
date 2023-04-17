@@ -6,15 +6,15 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.HomePage;
-import pageObject.LoginPage;
-import pageObject.PersonalAccountPage;
-import pageObject.StartPage;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.PersonalAccountPage;
+import pages.StartPage;
 
 public class HomePageChromeTest {
 
     private WebDriver driver;
-    private pageObject.StartPage StartPage;
+    private pages.StartPage StartPage;
     private LoginPage loginPage;
 
     private By loginBtn;

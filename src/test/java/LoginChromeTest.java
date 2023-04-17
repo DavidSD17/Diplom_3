@@ -5,15 +5,14 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.*;
+import pages.*;
 
 public class LoginChromeTest {
 
     private WebDriver driver;
-    private pageObject.StartPage StartPage;
+    private pages.StartPage StartPage;
     private LoginPage loginPage;
 
-    private By loginBtn;
 
     @Before
     public void setUp() {
