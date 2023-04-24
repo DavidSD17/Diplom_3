@@ -11,6 +11,7 @@ public class SignUpPage {
 
     private final By nameField = By.xpath("//label[contains(text(),'Имя')]/following-sibling::input");
     private final By emailField = By.xpath("//fieldset[2]//div[1]//div[1]//input[1]");
+    private final By passwordField = By.xpath("//input[@name='Пароль']");
 
     protected final By signUpBtn = By.xpath("//button[contains(text(),'Зарегистрироваться')]");
     private final By loginBtn = By.xpath("//a[contains(text(),'Войти')]");
@@ -30,6 +31,11 @@ public class SignUpPage {
         return name+"@yandex.ru";
     }
 
+    public String passGenerator(){
+        String password = RandomStringUtils.randomAlphabetic(7);
+        return password;
+    }
+
     public void pasteNameSignUp(String name){
         driver.findElement(nameField).click();
         driver.findElement(nameField).sendKeys(name);
@@ -38,6 +44,11 @@ public class SignUpPage {
     public void pasteEmailSignUp(String name){
         driver.findElement(emailField).click();
         driver.findElement(emailField).sendKeys(name);
+
+    }
+    public void pastePassSignUp(String password){
+        driver.findElement(passwordField).click();
+        driver.findElement(passwordField).sendKeys(password);
 
     }
     public String getEmailSignUp(){

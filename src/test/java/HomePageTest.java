@@ -11,18 +11,25 @@ import pages.LoginPage;
 import pages.PersonalAccountPage;
 import pages.StartPage;
 
-public class HomePageYandexTest {
+public class HomePageTest {
 
     private WebDriver driver;
+    private String yandexBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe";
     private StartPage StartPage;
     private LoginPage loginPage;
 
     private By loginBtn;
 
+
+
+
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe");
+        /**  Ревьюер предложил такой вариант: вынести путь до драйвера в строковую переменную.
+          Для запуска на Хроме просто закомментировать строку с System.setProperty */
+
+        System.setProperty("webdriver.chrome.driver",yandexBrowser);
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
 

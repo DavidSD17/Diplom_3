@@ -1,7 +1,10 @@
 org\example\Main.class
-pageObject\StartPage.class
-pageObject\PersonalAccountPage.class
-pageObject\SignUpPage.class
-pageObject\RestorePasswordPage.class
-pageObject\HomePage.class
-pageObject\LoginPage.class
+pages\LoginPage.class
+RestClient.class
+pages\HomePage.class
+pages\PersonalAccountPage.class
+pages\RestorePasswordPage.class
+pages\SignUpPage.class
+UserClient.class
+UserCreds.class
+pages\StartPage.class

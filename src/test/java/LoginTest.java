@@ -2,13 +2,14 @@ import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
-public class LoginYandexTest {
+public class LoginTest {
     private WebDriver driver;
+    private String yandexBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe";
+
     private StartPage StartPage;
     private LoginPage loginPage;
 
@@ -16,7 +17,10 @@ public class LoginYandexTest {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe");
+        /**  Ревьюер предложил такой вариант: вынести путь до драйвера в строковую переменную.
+         Для запуска на Хроме просто закомментировать строку с System.setProperty */
+
+        System.setProperty("webdriver.chrome.driver",yandexBrowser);
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
 

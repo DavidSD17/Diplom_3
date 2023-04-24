@@ -1,7 +1,10 @@
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\RestorePasswordPage.java
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\LoginPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\UserClient.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\PersonalAccountPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\RestClient.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\UserCreds.java
 C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\org\example\Main.java
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\StartPage.java
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\SignUpPage.java
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\HomePage.java
-C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pageObject\PersonalAccountPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\SignUpPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\LoginPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\HomePage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\StartPage.java
+C:\Users\dsladkov\IdeaProjects\Practicum\Diplom\Diplom_3\src\main\java\pages\RestorePasswordPage.java
