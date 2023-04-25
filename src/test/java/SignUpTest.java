@@ -22,12 +22,18 @@ public class SignUpTest {
     private String yandexBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe";
     private String chromeBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\chromedriver.exe";
 
+    private final String MAIN_URL = "https://stellarburgers.nomoreparties.site/";
+
 
     private By loginBtn;
     private String email;
     private String password;
+    private String inPassword;
     private String accessToken;
     private UserClient userClient;
+    private User user;
+
+
 
     @Before
     public void setUp() {
@@ -36,9 +42,10 @@ public class SignUpTest {
 
         System.setProperty("webdriver.chrome.driver", chromeBrowser);
         driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
+        driver.get(MAIN_URL);
+        user = UserGenerator.generateRandomCredentials();
 
-        userClient = new UserClient();
+        userClient = new UserClient(user);
 
     }
 
@@ -54,11 +61,11 @@ public class SignUpTest {
         loginPage.waitToLoadSignUpPage();
         signUpPage.pasteNameSignUp(signUpPage.nameGenerator());
         loginPage.pasteEmailAuth(signUpPage.nameGenerator() + "@yandex.ru");
-        loginPage.pastePasswordAuth("ljUoS");
+        loginPage.pastePasswordAuth(signUpPage.incorrectPassGenerator());
         signUpPage.clickOnSignUpBtn();
         loginPage.checkErrorPassText();
 
-        UserCreds userCreds = new UserCreds(email, password);
+        UserCreds userCreds = new UserCreds(email, inPassword);
         ValidatableResponse loginResponse = userClient.login(userCreds);
         accessToken = loginResponse.extract().path("accessToken");
 

@@ -36,6 +36,11 @@ public class SignUpPage {
         return password;
     }
 
+    public String incorrectPassGenerator(){
+        String inPassword = RandomStringUtils.randomAlphabetic(5);
+        return inPassword;
+    }
+
     public void pasteNameSignUp(String name){
         driver.findElement(nameField).click();
         driver.findElement(nameField).sendKeys(name);

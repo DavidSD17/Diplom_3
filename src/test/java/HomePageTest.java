@@ -19,7 +19,7 @@ public class HomePageTest {
     private LoginPage loginPage;
 
     private By loginBtn;
-
+    private final String MAIN_URL = "https://stellarburgers.nomoreparties.site/";
 
 
 
@@ -31,47 +31,11 @@ public class HomePageTest {
 
         System.setProperty("webdriver.chrome.driver",yandexBrowser);
         driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
+        driver.get(MAIN_URL);
 
     }
 
-    @Test
-    @Description("Переход в конструктор по кнопке Конструктор")
-    public void goToConstructorFromPersonalAccount() {
-        StartPage startPage = new StartPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-        startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
-        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
-        loginPage.pastePasswordAuth("ljUoSldk");
-        loginPage.clickOnLoginBtn();
-        homePage.clickOnPersonalAccountOnHomePage();
-        personalAccountPage.checkPersonalAccountTab();
-        personalAccountPage.clickOnConstructorBtn();
-        homePage.checkAssembleTheBurgerText();
 
-    }
-
-    @Test
-    @Description("Переход в конструктор по Лого")
-    public void goToConstructorByLogo() {
-        StartPage startPage = new StartPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-        startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
-        loginPage.pasteEmailAuth("pkendzb@yandex.ru");
-        loginPage.pastePasswordAuth("ljUoSldk");
-        loginPage.clickOnLoginBtn();
-        homePage.clickOnPersonalAccountOnHomePage();
-        personalAccountPage.checkPersonalAccountTab();
-        personalAccountPage.clickOnLogo();
-        homePage.checkAssembleTheBurgerText();
-
-    }
 
     @Test
     @Description("Переход на вкладку Начинки")

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     private WebDriver driver;
-    StartPage startPage = new StartPage(driver);
     HomePage homePage = new HomePage(driver);
     SignUpPage signUpPage = new SignUpPage(driver);
 
