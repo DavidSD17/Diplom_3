@@ -18,7 +18,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class SignUpTest {
 
     private WebDriver driver;
-    private WebDriver yaDriver;
+
     private String yandexBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\yandexdriver.exe";
     private String chromeBrowser = "C:\\Users\\dsladkov\\WebDriver\\bin\\chromedriver.exe";
 
@@ -52,6 +52,11 @@ public class SignUpTest {
     @Test
     @Description("Ошибка для некорректного пароля. Минимальный пароль — шесть символов")
     public void signUpIncorrectPassword() {
+
+        UserCreds userCreds = new UserCreds(email, inPassword);
+        ValidatableResponse loginResponse = userClient.login(userCreds);
+        accessToken = loginResponse.extract().path("accessToken");
+
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -65,15 +70,18 @@ public class SignUpTest {
         signUpPage.clickOnSignUpBtn();
         loginPage.checkErrorPassText();
 
-        UserCreds userCreds = new UserCreds(email, inPassword);
-        ValidatableResponse loginResponse = userClient.login(userCreds);
-        accessToken = loginResponse.extract().path("accessToken");
+
 
     }
 
     @Test
     @Description("Успешная регистрация")
     public void loginBySignUpBtn() {
+
+        UserCreds userCreds = new UserCreds(email, password);
+        ValidatableResponse loginResponse = userClient.login(userCreds);
+        accessToken = loginResponse.extract().path("accessToken");
+
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -88,9 +96,7 @@ public class SignUpTest {
         signUpPage.pastePassSignUp(password);
         signUpPage.clickOnSignUpBtn();
 
-        UserCreds userCreds = new UserCreds(email, password);
-        ValidatableResponse loginResponse = userClient.login(userCreds);
-        accessToken = loginResponse.extract().path("accessToken");
+
 
     }
 

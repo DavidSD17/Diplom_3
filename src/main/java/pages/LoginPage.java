@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     private WebDriver driver;
-    HomePage homePage = new HomePage(driver);
-    SignUpPage signUpPage = new SignUpPage(driver);
 
 
     /** Страница авторизации **/
@@ -30,7 +28,7 @@ public class LoginPage {
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(loginAuthBtn));
     }
     public void waitToLoadSignUpPage(){
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(signUpPage.signUpBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Зарегистрироваться')]")));
     }
 
     public void pasteEmailAuth(String email){
@@ -49,7 +47,7 @@ public class LoginPage {
 
     public void clickOnLoginBtn(){
         driver.findElement(loginAuthBtn).click();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(homePage.arrangeOrderBtn));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Оформить заказ')]")));
 
     }
 

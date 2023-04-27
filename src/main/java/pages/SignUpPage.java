@@ -13,7 +13,7 @@ public class SignUpPage {
     private final By emailField = By.xpath("//fieldset[2]//div[1]//div[1]//input[1]");
     private final By passwordField = By.xpath("//input[@name='Пароль']");
 
-    protected final By signUpBtn = By.xpath("//button[contains(text(),'Зарегистрироваться')]");
+    private final By signUpBtn = By.xpath("//button[contains(text(),'Зарегистрироваться')]");
     private final By loginBtn = By.xpath("//a[contains(text(),'Войти')]");
 
 

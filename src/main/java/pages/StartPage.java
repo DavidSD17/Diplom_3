@@ -2,13 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class StartPage {
-    LoginPage loginPage;
     private WebDriver driver;
 
     private final By loginBtn = By.xpath("//button[contains(text(),'Войти в аккаунт')]");
