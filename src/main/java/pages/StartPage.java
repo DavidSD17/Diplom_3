@@ -10,12 +10,17 @@ public class StartPage {
     private WebDriver driver;
 
     private final By loginBtn = By.xpath("//button[contains(text(),'Войти в аккаунт')]");
+    private final By loginAuthBtn = By.xpath("//button[contains(text(),'Войти')]");
     private final By personalAccountBtn = By.xpath("//p[contains(text(),'Личный Кабинет')]");
 
 
 
     public StartPage(WebDriver driver) {
             this.driver = driver;
+    }
+
+    public void waitToLoadStartPage(){
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Войти')]")));
     }
 
     public void clickOnLoginBtn(){

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     WebDriver driver;
-    protected final By arrangeOrderBtn = By.xpath("//button[contains(text(),'Оформить заказ')]");
     private final By personalAccountBtn = By.xpath("//p[contains(text(),'Личный Кабинет')]");
     private final By assembleTheBurgerText = By.xpath("//h1[contains(text(),'Соберите бургер')]");
     private final By sauceTab = By.xpath("//span[contains(text(),'Соусы')]");

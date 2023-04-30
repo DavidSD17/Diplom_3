@@ -21,24 +21,8 @@ public class SignUpPage {
         this.driver = driver;
     }
 
-    public String nameGenerator(){
-        String name = RandomStringUtils.randomAlphabetic(7);
-        return name;
-    }
-
-    public String emailGenerator(){
-        String name = RandomStringUtils.randomAlphabetic(7);
-        return name+"@yandex.ru";
-    }
-
-    public String passGenerator(){
-        String password = RandomStringUtils.randomAlphabetic(7);
-        return password;
-    }
-
-    public String incorrectPassGenerator(){
-        String inPassword = RandomStringUtils.randomAlphabetic(5);
-        return inPassword;
+    public void waitToLoadSignUpPage(){
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Зарегистрироваться')]")));
     }
 
     public void pasteNameSignUp(String name){
@@ -54,10 +38,6 @@ public class SignUpPage {
     public void pastePassSignUp(String password){
         driver.findElement(passwordField).click();
         driver.findElement(passwordField).sendKeys(password);
-
-    }
-    public String getEmailSignUp(){
-      return driver.findElement(emailField).getText();
 
     }
 

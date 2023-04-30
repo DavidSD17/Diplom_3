@@ -2,9 +2,11 @@ org\example\Main.class
 pages\LoginPage.class
 RestClient.class
 pages\HomePage.class
+User.class
 pages\PersonalAccountPage.class
 pages\RestorePasswordPage.class
 pages\SignUpPage.class
 UserClient.class
 UserCreds.class
 pages\StartPage.class
+UserGenerator.class

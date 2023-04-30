@@ -56,7 +56,7 @@ public class LoginTest {
 
 
         startPage.clickOnLoginBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
         loginPage.clickOnLoginBtn();
@@ -69,7 +69,7 @@ public class LoginTest {
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
         loginPage.clickOnLoginBtn();
@@ -84,7 +84,7 @@ public class LoginTest {
         SignUpPage signUpPage = new SignUpPage(driver);
         startPage.clickOnLoginBtn();
         loginPage.clickOnSignUpBtn();
-        loginPage.waitToLoadSignUpPage();
+        signUpPage.waitToLoadSignUpPage();
         signUpPage.clickOnLoginBtn();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
@@ -115,7 +115,7 @@ public class LoginTest {
         HomePage homePage = new HomePage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
         loginPage.clickOnLoginBtn();
@@ -132,7 +132,7 @@ public class LoginTest {
         HomePage homePage = new HomePage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
         loginPage.clickOnLoginBtn();
@@ -151,7 +151,7 @@ public class LoginTest {
         HomePage homePage = new HomePage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         startPage.clickOnPersonalAccountBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.pasteEmailAuth(email);
         loginPage.pastePasswordAuth(password);
         loginPage.clickOnLoginBtn();

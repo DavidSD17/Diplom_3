@@ -24,19 +24,9 @@ public class LoginPage {
     }
 
 
-    public void waitToLoadStartPage(){
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(loginAuthBtn));
-    }
-    public void waitToLoadSignUpPage(){
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Зарегистрироваться')]")));
-    }
-
     public void pasteEmailAuth(String email){
         driver.findElement(emailField).click();
         driver.findElement(emailField).sendKeys(email);
-    }
-    public String getEmailSignUp(){
-        return driver.findElement(emailField).getText();
     }
 
     public void pastePasswordAuth(String password){
@@ -60,11 +50,7 @@ public class LoginPage {
         driver.findElement(restorePasswordBtn).click();
 
     }
-    public void clickOnLoginBtnNotWait(){
-        driver.findElement(loginAuthBtn).isDisplayed();
-        driver.findElement(loginAuthBtn).click();
 
-    }
     public void checkErrorPassText(){
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(inCorrectPasswordText));
 

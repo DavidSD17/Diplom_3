@@ -45,7 +45,7 @@ public class UserClient extends RestClient{
     }
 
 
-    @Step("Login {user}")
+    @Step("Delete {user}")
     public ValidatableResponse delete(String accessToken) {
         return given()
                 .spec(getBaseReqSpec())

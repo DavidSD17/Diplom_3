@@ -1,6 +1,3 @@
-HomePageChromeTest.class
-LoginChromeTest.class
-HomePageYandexTest.class
-SignUpChromeTest.class
-LoginYandexTest.class
-SignUpYandexTest.class
+SignUpTest.class
+HomePageTest.class
+LoginTest.class

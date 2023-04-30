@@ -1,5 +1,6 @@
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,8 +32,8 @@ public class SignUpTest {
     private String inPassword;
     private String accessToken;
     private UserClient userClient;
+    private UserCreds userCreds;
     private User user;
-
 
 
     @Before
@@ -40,12 +41,13 @@ public class SignUpTest {
         /**  Ревьюер предложил такой вариант: вынести путь до драйвера в строковую переменную */
 
 
-        System.setProperty("webdriver.chrome.driver", chromeBrowser);
+        System.setProperty("webdriver.chrome.driver", yandexBrowser);
         driver = new ChromeDriver();
         driver.get(MAIN_URL);
         user = UserGenerator.generateRandomCredentials();
 
         userClient = new UserClient(user);
+
 
     }
 
@@ -53,23 +55,21 @@ public class SignUpTest {
     @Description("Ошибка для некорректного пароля. Минимальный пароль — шесть символов")
     public void signUpIncorrectPassword() {
 
-        UserCreds userCreds = new UserCreds(email, inPassword);
-        ValidatableResponse loginResponse = userClient.login(userCreds);
-        accessToken = loginResponse.extract().path("accessToken");
 
         StartPage startPage = new StartPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
+
         startPage.clickOnLoginBtn();
-        loginPage.waitToLoadStartPage();
+        startPage.waitToLoadStartPage();
         loginPage.clickOnSignUpBtn();
-        loginPage.waitToLoadSignUpPage();
-        signUpPage.pasteNameSignUp(signUpPage.nameGenerator());
-        loginPage.pasteEmailAuth(signUpPage.nameGenerator() + "@yandex.ru");
-        loginPage.pastePasswordAuth(signUpPage.incorrectPassGenerator());
+        signUpPage.waitToLoadSignUpPage();
+
+        signUpPage.pasteNameSignUp(UserGenerator.nameGenerator());
+        signUpPage.pasteEmailSignUp(UserGenerator.emailGenerator());
+        signUpPage.pastePassSignUp(UserGenerator.incorrectPassGenerator());
         signUpPage.clickOnSignUpBtn();
         loginPage.checkErrorPassText();
-
 
 
     }
@@ -78,8 +78,7 @@ public class SignUpTest {
     @Description("Успешная регистрация")
     public void loginBySignUpBtn() {
 
-        UserCreds userCreds = new UserCreds(email, password);
-        ValidatableResponse loginResponse = userClient.login(userCreds);
+        ValidatableResponse loginResponse = userClient.create(user);
         accessToken = loginResponse.extract().path("accessToken");
 
         StartPage startPage = new StartPage(driver);
@@ -88,14 +87,13 @@ public class SignUpTest {
 
         startPage.clickOnLoginBtn();
         loginPage.clickOnSignUpBtn();
-        loginPage.waitToLoadSignUpPage();
-        signUpPage.pasteNameSignUp(signUpPage.nameGenerator());
-        email = signUpPage.emailGenerator();
+        signUpPage.waitToLoadSignUpPage();
+        signUpPage.pasteNameSignUp(UserGenerator.nameGenerator());
+        email = UserGenerator.emailGenerator();
         signUpPage.pasteEmailSignUp(email);
-        password = signUpPage.passGenerator();
+        password = UserGenerator.passGenerator();
         signUpPage.pastePassSignUp(password);
         signUpPage.clickOnSignUpBtn();
-
 
 
     }
